@@ -19,7 +19,7 @@ public class BlockLogger implements ModInitializer {
         String path = readConfig.configContents();
         PlayerBlockBreakEvents.AFTER.register((world, player, pos, state, entity) -> {
             if(writeType==0){
-                String txtWriteData = "World = "+world+" & Player = "+player+" & Block position = X:"+pos.getX()+" Y:"+pos.getY()+" Z:"+pos.getZ()+" & Block replaced = "+state+" & Entity = "+entity;
+                String txtWriteData = "w|"+world+"|p|"+player+"|b|"+pos.getX()+" "+pos.getY()+" "+pos.getZ()+"|s|"+state+"|e|"+entity;
                 try{
                     write.writeToFile(txtWriteData, path);
                 }
